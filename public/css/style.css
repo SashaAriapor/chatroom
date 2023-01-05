@@ -1,0 +1,227 @@
+/* imports */
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/* css variables */
+:root {
+    --light-color: #EEEEEE;
+    --lighter-color: #ffffff;
+    --primary-color: #FFD369;
+    --dark-color: #393E46;
+    --darker-color: #222831;
+}
+
+
+/* css resat  */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Righteous', cursive;
+    color: var(--dark-color);
+}
+
+ul {
+	list-style: none;
+}
+
+a {
+	text-decoration: none;
+}
+
+/* All Styling */
+body {
+    font-size: 24px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+
+/* Join Styling  */
+.join__container {
+    padding: 4rem;
+    border: 2px solid var(--dark-color) ;
+    background-color: var(--light-color);
+    border-radius: 30px;
+}
+.join__container h2 {
+    text-align: center;
+}
+.join__container h4 {
+    margin: .5rem 0;
+    text-align: center;
+}
+.logo {
+    margin-bottom: 2rem;
+}
+.username__input {
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 1px;
+    border: 1px solid var(--dark-color);
+    border-radius: 6px;
+}
+
+.username__input:focus {
+    border: 1px solid var(--dark-color);
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 6px;
+    outline: none;
+}
+
+.room__selector {
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 1px;
+    border: 1px solid var(--dark-color);
+    border-radius: 6px;
+    color: var(--dark-color);
+}
+
+.room__selector:hover {
+    cursor: pointer;
+    outline: none;
+    border: 1px solid var(--dark-color);
+}
+
+.join__btn {
+    background-color: var(--lighter-color);
+    width: 15rem;
+    height: 2rem;
+    text-align: center;
+    padding: 0 1rem;
+    border-radius: 1px;
+    border: 1px solid var(--dark-color);
+    border-radius: 6px;
+    margin-top: .5rem;
+}
+
+.join__btn:hover {
+    cursor: pointer;
+    background-color: var(--dark-color);
+    color: var(--light-color);
+    transition: linear .2s;
+}
+
+/* Chat Styling */
+.chat__container {
+    border: 1px solid var(--dark-color);
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    border-radius: 20px;
+    width: 80%;
+}
+
+.chat__header {
+    padding: 1rem;
+    display: flex;
+    width: 100%;    
+    height: 10%;    
+    justify-content: space-between;
+    border-bottom: 1px solid var(--dark-color);
+    align-items: center;
+    border-top-left-radius: 5px;
+	border-top-right-radius: 5px;
+    /* font-size: 1.2rem; */
+}
+
+.leave__btn {
+    padding: 0 1em;
+    border-radius: 2px;
+    height: 2.5rem;
+}
+
+.chat__main {
+    display: grid;
+	grid-template-columns: 1fr 3fr;
+}
+
+.chat__sidebar {
+    background: var(--light-color);
+    padding: 2.1rem 2.1px 4rem;
+    overflow-y: scroll;
+    text-align: center;
+}
+
+#users li {
+    font-size: 19px;
+    padding: .3rem 0;
+}
+#room__name {
+    font-size: 19px;
+    padding: .4rem 0;
+}
+
+.chat__messages {
+    padding: 1.5rem;
+	max-height: 500px;
+	overflow-y: scroll;
+    background-color: var(--lighter-color);
+}
+
+.message {
+    background-color: var(--light-color);
+    color: var(--dark-color);
+    font-size: 19px;
+    padding: .5rem;
+    margin-top: .5rem ;
+}
+
+.chat__form__container {
+    padding: 1rem 1.7rem;
+    height: 5rem;
+}
+
+.chat__form__container form {
+    display: grid;
+    grid-template-columns: auto 5rem;
+    gap: .2rem;
+}
+
+.chat__form__container input {
+    height: 2rem;
+    border-radius: 2px;
+    border: 1px solid var(--dark-color);
+    padding-left: 1rem;
+}
+
+.chat__form__container input:focus {
+    outline: none;
+    border: 1px solid var(--dark-color);
+}
+
+.send__btn {
+    height: 2rem;
+    border: 1px solid var(--dark-color);
+    background-color: var(--lighter-color);
+}
+
+.send__btn:hover {
+    background-color: var(--dark-color);
+    border: 1px solid var(--dark-color);
+    color: var(--light-color);
+    transition: liner .2s;
+}
+.send__btn:hover i {
+    color: var(--light-color);
+}
+
+
+/* Responsive  */
+@media (max-width: 700px) {
+	.chat__main {
+		display: block;
+	}
+
+	.chat__sidebar {
+		display: none;
+	}
+}
