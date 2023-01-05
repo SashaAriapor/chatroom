@@ -19,11 +19,21 @@ app.use(express.static(path.join(__dirname, "public")));
 const botName = process.env.BOT_NAME || "botName";
 const PORT = process.env.PORT || 3000;
 
-// Client Connection
+// Socket Listener Part 
 io.on("connection", socket => {
-    console.log("connected");
-})
-
+    // Listening To Connection
+    socket.emit("message", "welcome To ChatRoom");
+    // Broadcast New Connection
+    socket.broadcast.emit("message", "A user has Joind the Chat");
+    // Listening To Disconnection
+    socket.on("disconnect", () => {
+        io.emit("message", "A user has left the chat");
+    });
+    // Listen For ChatMessage
+    socket.on("chatMessage", (msg) => {
+        console.log(msg);
+    });
+});
 
 // Run App 
 server.listen(PORT, () => console.log(`Server running on port ${PORT}`));
