@@ -1,11 +1,17 @@
 // Get At Dom
-
 const chatForm = document.getElementById("chat__form");
+const ChatMessageContainer = document.querySelector(".chat__messages");
 
-// Connect To server
+// Connet To the Server
 const socket = io();
+
+
+// Get Message Part
 socket.on("message", message => {
-    console.log(message);
+    messageDomCreator(message);
+
+    // Scroll Down 
+    ChatMessageContainer.scrollTop = ChatMessageContainer.scrollHeight;
 })
 
 // Send Meesage Part
@@ -13,7 +19,6 @@ chatForm.addEventListener('submit', (e) => {
     // Get Text Message From Send Input
     e.preventDefault();
     let msg = e.target.elements.msg.value;
-    console.log(msg);
     msg = msg.trim();  
     if (!msg) {
       return false;
@@ -24,3 +29,14 @@ chatForm.addEventListener('submit', (e) => {
     e.target.elements.msg.value = '';
     e.target.elements.msg.focus();
 });
+
+
+// Put A message to Dom
+function messageDomCreator(message){
+    const div = document.createElement("div");
+    div.classList.add('message');
+    div.innerHTML = `
+        <p class="meta">Mary <span>9:15pm</span></p>
+        <p class="text">${message}</p>`;
+    document.querySelector(".chat__messages").appendChild(div);
+}
